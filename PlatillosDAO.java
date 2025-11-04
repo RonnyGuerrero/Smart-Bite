@@ -4,129 +4,48 @@
  */
 package Model;
 
+import java.io.File;
+import java.util.LinkedList;
 
-import java.sql.*;
+public class PlatillosDAO extends ArchivoDAO<Platillos> {
 
-public class PlatillosDAO {
+    private LinkedList<Platillos> platillos;
 
-    public boolean insertarPlatillo(Platillos p) {
-        String sql = "INSERT INTO platillos (nombre, categoria, precio, descripcion) VALUES (?, ?, ?, ?)";
-        try (Connection con = ConexionSQL.conectar();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, p.getNombre());
-            ps.setString(2, p.getCategoria());
-            ps.setDouble(3, p.getPrecio());
-            ps.setString(4, p.getDescripcion());
-            ps.executeUpdate();
-
-            System.out.println("Platillo agregado correctamente");
-            return true;
-
-        } catch (SQLException e) {
-            System.out.println("Error al insertar platillo: " + e.getMessage());
-            return false;
-        }
+    public PlatillosDAO(String codigoRestaurante) {
+        super("C:/ronny/PAULA/restaurantes/" + codigoRestaurante + "/platillos.dat");
+        new File("C:/ronny/PAULA/restaurantes/" + codigoRestaurante).mkdirs();
+        this.platillos = cargar();
     }
 
-    public boolean actualizarPlatillo(Platillos p) {
-        String sql = "UPDATE platillos SET nombre = ?, categoria = ?, precio = ?, descripcion = ? WHERE id_platillo = ?";
-        try (Connection con = ConexionSQL.conectar();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, p.getNombre());
-            ps.setString(2, p.getCategoria());
-            ps.setDouble(3, p.getPrecio());
-            ps.setString(4, p.getDescripcion());
-            ps.setInt(5, p.getIdPlatillo());
-
-            int filas = ps.executeUpdate();
-            if (filas > 0) {
-                System.out.println("Platillo actualizado correctamente");
-                return true;
-            } else {
-                System.out.println(" No se encontró el platillo con ID " + p.getIdPlatillo());
-                return false;
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar platillo: " + e.getMessage());
-            return false;
-        }
+    public void agregar(Platillos p) {
+        platillos.add(p);
+        guardar(platillos);
+        System.out.println("✅ Platillo guardado");
     }
 
-    public boolean eliminarPlatillo(int idPlatillo) {
-        String sql = "DELETE FROM platillos WHERE id_platillo = ?";
-        try (Connection con = ConexionSQL.conectar();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setInt(1, idPlatillo);
-            int filas = ps.executeUpdate();
-
-            if (filas > 0) {
-                System.out.println(" Platillo eliminado correctamente");
-                return true;
-            } else {
-                System.out.println("️ No existe un platillo con ese ID");
-                return false;
-            }
-
-        } catch (SQLException e) {
-            System.out.println(" Error al eliminar platillo: " + e.getMessage());
-            return false;
+    public boolean eliminar(String nombre) {
+        boolean eliminado = platillos.removeIf(p -> p.getNombre().equalsIgnoreCase(nombre));
+        if (eliminado) {
+            guardar(platillos);
         }
+        return eliminado;
     }
 
-    public Platillos obtenerPlatilloPorId(int idPlatillo) {
-        String sql = "SELECT * FROM platillos WHERE id_platillo = ?";
-        Platillos p = null;
-
-        try (Connection con = ConexionSQL.conectar();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setInt(1, idPlatillo);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                p = new Platillos(
-                        rs.getInt("id_platillo"),
-                        rs.getString("nombre"),
-                        rs.getString("categoria"),
-                        rs.getDouble("precio"),
-                        rs.getString("descripcion")
-                );
+    public Platillos buscar(String nombre) {
+        for (Platillos p : platillos) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                return p;
             }
-
-        } catch (SQLException e) {
-            System.out.println(" Error al obtener platillo: " + e.getMessage());
         }
-
-        return p;
+        return null;
     }
 
-    public ListaPlatillos listarPlatillos() {
-        ListaPlatillos lista = new ListaPlatillos();
-        String sql = "SELECT * FROM platillos";
-
-        try (Connection con = ConexionSQL.conectar();
-             Statement st = con.createStatement();
-             ResultSet rs = st.executeQuery(sql)) {
-
-            while (rs.next()) {
-                Platillos p = new Platillos(
-                        rs.getInt("id_platillo"),
-                        rs.getString("nombre"),
-                        rs.getString("categoria"),
-                        rs.getDouble("precio"),
-                        rs.getString("descripcion")
-                );
-                lista.agregar(p);
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error al listar platillos: " + e.getMessage());
+    public void listar() {
+        if (platillos.isEmpty()) {
+            System.out.println("(No hay platillos)");
         }
-
-        return lista;
+        for (Platillos p : platillos) {
+            System.out.println(p);
+        }
     }
 }

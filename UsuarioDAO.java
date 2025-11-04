@@ -1,130 +1,53 @@
 package Model;
 
-import java.sql.*;
+import java.io.File;
+import java.util.LinkedList;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends ArchivoDAO<Usuario> {
 
-    public ListaUsuarios listaUsuarios() {
-        ListaUsuarios lista = new ListaUsuarios();
-        String sql = "SELECT * FROM usuarios";
+    private LinkedList<Usuario> usuarios;
 
-        try (Connection con = ConexionSQL.conectar(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
+    public UsuarioDAO(String codigoRestaurante) {
+        super("C:/ronny/PAULA/restaurantes/" + codigoRestaurante + "/usuarios.dat");
 
-            while (rs.next()) {
-                Usuario u = new Usuario(
-                        rs.getInt("id_usuario"),
-                        rs.getString("nombre"),
-                        rs.getString("apellido"),
-                        rs.getString("rol"),
-                        rs.getString("usuario"),
-                        rs.getString("contrasena")
-                );
-                lista.agregar(u);
-                lista.mostrar();
+        new File("C:/ronny/PAULA/restaurantes/" + codigoRestaurante).mkdirs();
+
+        this.usuarios = cargar();
+    }
+
+    public void agregar(Usuario u) {
+        usuarios.add(u);
+        guardar(usuarios);
+        System.out.println("Usuario agregado y guardado");
+    }
+
+    public boolean eliminar(String nombreUsuario) {
+        boolean eliminado = usuarios.removeIf(u -> u.getUsuario().equalsIgnoreCase(nombreUsuario));
+        if (eliminado) {
+            guardar(usuarios);
+        }
+        return eliminado;
+    }
+
+    public Usuario buscar(String nombreUsuario) {
+        for (Usuario u : usuarios) {
+            if (u.getUsuario().equalsIgnoreCase(nombreUsuario)) {
+                return u;
             }
-        } catch (SQLException e) {
-            System.err.println("Error al listar usuarios: " + e.getMessage());
         }
-        return lista;
+        return null;
     }
 
-    public boolean agregarUsuario(Usuario u) {
-        String sql = "INSERT INTO usuarios (nombre, apellido, rol, usuario, contrasena) VALUES (?, ?, ?, ?, ?)";
-        try (Connection con = ConexionSQL.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, u.getNombre());
-            ps.setString(2, u.getApellido());
-            ps.setString(3, u.getRol());
-            ps.setString(4, u.getUsuario());
-            ps.setString(5, u.getContrasena());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.err.println("Error al agregar usuario: " + e.getMessage());
-            return false;
+    public void listar() {
+        if (usuarios.isEmpty()) {
+            System.out.println("(No hay usuarios)");
+        }
+        for (Usuario u : usuarios) {
+            System.out.println(u);
         }
     }
 
-    public Usuario buscarPorUsuario(String nombreUsuario) {
-        String sql = "SELECT * FROM usuarios WHERE usuario = ?";
-        Usuario usuario = null;
-
-        try (Connection con = ConexionSQL.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, nombreUsuario);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    usuario = new Usuario(
-                            rs.getInt("id_usuario"),
-                            rs.getString("nombre"),
-                            rs.getString("apellido"),
-                            rs.getString("rol"),
-                            rs.getString("usuario"),
-                            rs.getString("contrasena")
-                    );
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al buscar usuario: " + e.getMessage());
-        }
-        return usuario;
-    }
-
-    public Usuario validarLogin(String nombreUsuario, String contrasena) {
-        String sql = "SELECT * FROM usuarios WHERE usuario = ? AND contrasena = ?";
-        Usuario usuario = null;
-
-        try (Connection con = ConexionSQL.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, nombreUsuario);
-            ps.setString(2, contrasena);
-
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    usuario = new Usuario(
-                            rs.getInt("id_usuario"),
-                            rs.getString("nombre"),
-                            rs.getString("apellido"),
-                            rs.getString("rol"),
-                            rs.getString("usuario"),
-                            rs.getString("contrasena")
-                    );
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al validar login: " + e.getMessage());
-        }
-        return usuario;
-    }
-
-    public boolean eliminarUsuario(int idUsuario) {
-        String sql = "DELETE FROM usuarios WHERE id_usuario = ?";
-        try (Connection con = ConexionSQL.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setInt(1, idUsuario);
-            int filas = ps.executeUpdate();
-            return filas > 0;
-        } catch (SQLException e) {
-            System.err.println("Error al eliminar usuario: " + e.getMessage());
-            return false;
-        }
-    }
-
-    public boolean actualizarUsuario(Usuario u) {
-        String sql = "UPDATE usuarios SET nombre = ?, apellido =?, rol = ?, usuario = ?, contrasena = ? WHERE id_usuario = ?";
-        try (Connection con = ConexionSQL.conectar(); PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, u.getNombre());
-            ps.setString(2, u.getApellido());
-            ps.setString(3, u.getRol());
-            ps.setString(4, u.getUsuario());
-            ps.setString(5, u.getContrasena());
-            ps.setInt(6, u.getIdUsuario());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.err.println("Error al actualizar usuario: " + e.getMessage());
-            return false;
-        }
+    public LinkedList<Usuario> getUsuarios() {
+        return usuarios;
     }
 }

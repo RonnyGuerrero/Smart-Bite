@@ -4,7 +4,9 @@
  */
 package Model;
 
-public class Ingredientes {
+import java.io.Serializable;
+
+public class Ingredientes implements Serializable{
 
     private int idIngrediente;
     private String nombre;

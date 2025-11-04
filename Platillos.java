@@ -4,7 +4,9 @@
  */
 package Model;
 
-public class Platillos {
+import java.io.Serializable;
+
+public class Platillos implements Serializable{
 
     private int idPlatillo;
     private String nombre;

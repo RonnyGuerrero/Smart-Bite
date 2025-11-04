@@ -4,18 +4,14 @@
  */
 package Model;
 
-
-/**
- *
- * @author Usuario
- */
 public class Main {
 
     public static void main(String[] args) {
-        UsuarioDAO usu = new UsuarioDAO();
 
-        Usuario nuevo = new Usuario(0, "ronny", "guerrero", "administrador", "ranasg", "4321");
-        
-        usu.listaUsuarios();
+        PlatillosDAO platilloDAO = new PlatillosDAO("R001");
+
+// Agregar varios
+        platilloDAO.listar();
+
     }
 }
