@@ -48,4 +48,14 @@ public class PlatillosDAO extends ArchivoDAO<Platillos> {
             System.out.println(p);
         }
     }
+     public LinkedList<Platillos> getPlatillos() {
+        return platillos;
+    }
+
+    // 🔹 Reemplazar lista completa (para guardar después de editar o eliminar varios)
+    public void setPlatillos(LinkedList<Platillos> listaActualizada) {
+        this.platillos = listaActualizada;
+        guardar(this.platillos);
+    }
 }
+

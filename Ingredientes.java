@@ -5,24 +5,35 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class Ingredientes implements Serializable{
+public class Ingredientes implements Serializable {
 
     private int idIngrediente;
     private String nombre;
     private int cantidad;
     private String unidadMedida;
     private double costoUnidad;
+    private Date FechaVencimiento;
 
     public Ingredientes() {
     }
 
-    public Ingredientes(int idIngrediente, String nombre, int cantidad, String unidadMedida, double costoUnidad) {
+    public Ingredientes(int idIngrediente, String nombre, int cantidad, String unidadMedida, double costoUnidad,Date FechaVencimiento) {
         this.idIngrediente = idIngrediente;
+        this.FechaVencimiento = FechaVencimiento;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.unidadMedida = unidadMedida;
         this.costoUnidad = costoUnidad;
+    }
+
+    public Date getFechaVencimiento() {
+        return FechaVencimiento;
+    }
+
+    public void setFechaVencimiento(Date FechaVencimiento) {
+        this.FechaVencimiento = FechaVencimiento;
     }
 
     public int getIdIngrediente() {
@@ -67,6 +78,8 @@ public class Ingredientes implements Serializable{
 
     @Override
     public String toString() {
-        return idIngrediente + " | " + nombre + " | " + cantidad + " " + unidadMedida + " | $" + costoUnidad;
+        return "Ingredientes{" + "idIngrediente=" + idIngrediente + ", nombre=" + nombre + ", cantidad=" + cantidad + ", unidadMedida=" + unidadMedida + ", costoUnidad=" + costoUnidad + ", FechaVencimiento=" + FechaVencimiento + '}';
     }
+
+   
 }

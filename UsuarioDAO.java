@@ -48,6 +48,12 @@ public class UsuarioDAO extends ArchivoDAO<Usuario> {
     }
 
     public LinkedList<Usuario> getUsuarios() {
-        return usuarios;
-    }
+    return usuarios;
+}
+
+public void setUsuarios(LinkedList<Usuario> listaActualizada) {
+    this.usuarios = listaActualizada;
+    guardar(this.usuarios);
+}
+
 }

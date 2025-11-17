@@ -20,7 +20,7 @@ public class IngredientesDAO extends ArchivoDAO<Ingredientes> {
     public void agregar(Ingredientes i) {
         ingredientes.add(i);
         guardar(ingredientes);
-        System.out.println("✅ Ingrediente guardado");
+        System.out.println("Ingrediente guardado");
     }
 
     public boolean eliminar(String nombre) {
@@ -48,4 +48,33 @@ public class IngredientesDAO extends ArchivoDAO<Ingredientes> {
             System.out.println(i);
         }
     }
+
+    public LinkedList<Ingredientes> getIngredientes() {
+        return ingredientes;
+    }
+
+    public boolean editarIngrediente(String nombreBuscado, Ingredientes nuevosDatos) {
+
+        for (Ingredientes ing : ingredientes) {
+            if (ing.getNombre().equalsIgnoreCase(nombreBuscado)) {
+
+                // Editar atributos
+                ing.setNombre(nuevosDatos.getNombre());
+                ing.setCantidad(nuevosDatos.getCantidad());
+                ing.setUnidadMedida(nuevosDatos.getUnidadMedida());
+                ing.setCostoUnidad(nuevosDatos.getCostoUnidad());
+                ing.setFechaVencimiento(nuevosDatos.getFechaVencimiento());
+                guardar(ingredientes);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void setIngredientes(LinkedList<Ingredientes> listaActualizada) {
+        this.ingredientes = listaActualizada;
+        guardar(this.ingredientes);
+    }
+
 }

@@ -15,7 +15,7 @@ public abstract class ArchivoDAO<T> {
         this.archivo = new File(rutaArchivo);
     }
 
-    protected void guardar(LinkedList<T> lista) {
+        protected void guardar(LinkedList<T> lista) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
             out.writeObject(lista);
         } catch (IOException e) {
@@ -23,7 +23,6 @@ public abstract class ArchivoDAO<T> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     protected LinkedList<T> cargar() {
         if (!archivo.exists()) {
             return new LinkedList<>();
@@ -32,7 +31,7 @@ public abstract class ArchivoDAO<T> {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(archivo))) {
             return (LinkedList<T>) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            System.err.println("⚠️ No se pudo cargar: " + e.getMessage());
+            System.err.println(" No se pudo cargar: " + e.getMessage());
             return new LinkedList<>();
         }
     }

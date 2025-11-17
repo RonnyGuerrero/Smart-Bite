@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.LinkedList;
+
 public class ListaIngredientes {
 
     private NodoIngrediente cabeza;
@@ -75,17 +77,36 @@ public class ListaIngredientes {
             anterior = actual;
             actual = actual.siguiente;
         }
-
         return false;
     }
+    public boolean editarIngrediente(String nombreBuscado, Ingredientes nuevosDatos) {
+    NodoIngrediente temp = cabeza;
 
-    public int contar() {
-        int contador = 0;
+    while (temp != null) {
+        if (temp.ingrediente.getNombre().equalsIgnoreCase(nombreBuscado)) {
+
+            temp.ingrediente.setNombre(nuevosDatos.getNombre());
+            temp.ingrediente.setCantidad(nuevosDatos.getCantidad());
+            temp.ingrediente.setUnidadMedida(nuevosDatos.getUnidadMedida());
+            temp.ingrediente.setCostoUnidad(nuevosDatos.getCostoUnidad());
+            temp.ingrediente.setFechaVencimiento(nuevosDatos.getFechaVencimiento());
+
+            return true;
+        }
+        temp = temp.siguiente;
+    }
+    return false; 
+}
+
+
+    // 🔹 Convertir a LinkedList (para guardar en archivo)
+    public LinkedList<Ingredientes> aLinkedList() {
+        LinkedList<Ingredientes> lista = new LinkedList<>();
         NodoIngrediente temp = cabeza;
         while (temp != null) {
-            contador++;
+            lista.add(temp.ingrediente);
             temp = temp.siguiente;
         }
-        return contador;
+        return lista;
     }
 }

@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.LinkedList;
+
 public class ListaPlatillos {
 
     private NodoPlatillo cabeza;
@@ -33,7 +35,7 @@ public class ListaPlatillos {
 
     public void mostrar() {
         if (cabeza == null) {
-            System.out.println("(Lista vacía)");
+            System.out.println("(No hay platillos en la lista)");
             return;
         }
         NodoPlatillo temp = cabeza;
@@ -79,13 +81,13 @@ public class ListaPlatillos {
         return false;
     }
 
-    public int contar() {
-        int contador = 0;
+    public LinkedList<Platillos> aLinkedList() {
+        LinkedList<Platillos> lista = new LinkedList<>();
         NodoPlatillo temp = cabeza;
         while (temp != null) {
-            contador++;
+            lista.add(temp.platillo);
             temp = temp.siguiente;
         }
-        return contador;
+        return lista;
     }
 }
