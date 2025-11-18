@@ -41,7 +41,7 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        botonIniciar = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
 
@@ -82,20 +82,20 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+        botonIniciar.setBackground(new java.awt.Color(0, 0, 0));
+        botonIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonIniciar.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jPanel2AncestorAdded(evt);
+                botonIniciarAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                botonIniciarMouseClicked(evt);
             }
         });
 
@@ -103,18 +103,18 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("INICIAR");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout botonIniciarLayout = new javax.swing.GroupLayout(botonIniciar);
+        botonIniciar.setLayout(botonIniciarLayout);
+        botonIniciarLayout.setHorizontalGroup(
+            botonIniciarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonIniciarLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel4)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        botonIniciarLayout.setVerticalGroup(
+            botonIniciarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonIniciarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(7, Short.MAX_VALUE))
@@ -142,7 +142,7 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
                             .addComponent(txtContraseña))
                         .addGap(96, 96, 96))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(227, 227, 227))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,7 +165,7 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3))
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
         );
 
@@ -195,12 +195,12 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jPanel1AncestorAdded
 
-    private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
+    private void botonIniciarAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_botonIniciarAncestorAdded
 
 
-    }//GEN-LAST:event_jPanel2AncestorAdded
+    }//GEN-LAST:event_botonIniciarAncestorAdded
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+    private void botonIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarMouseClicked
         // TODO add your handling code here:
         String usuario = txtusuario.getText();
         String contraseña = txtContraseña.getText();
@@ -214,16 +214,16 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showConfirmDialog(null, "error");
         }
-    }//GEN-LAST:event_jPanel2MouseClicked
+    }//GEN-LAST:event_botonIniciarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel botonIniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtusuario;

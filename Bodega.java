@@ -4,6 +4,12 @@
  */
 package View;
 
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Usuario
@@ -46,7 +52,7 @@ public class Bodega extends javax.swing.JFrame {
         txtNombreingredienteAgregar = new javax.swing.JTextField();
         txtCostoingredienteAgregar = new javax.swing.JTextField();
         txtVencimientoingredienteAgregar = new javax.swing.JTextField();
-        botonEditaringredienteAgregar = new javax.swing.JPanel();
+        botoningredienteAgregar = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         BotonCancelaringredienteAgregar = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -58,11 +64,11 @@ public class Bodega extends javax.swing.JFrame {
         BotonBuscarIngrediente = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         TXTbuscar1 = new javax.swing.JTextField();
-        BotonEditarIngrediente = new javax.swing.JPanel();
+        BotonAgregarIngrediente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BotonElminarIngrediente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        BotonEditarIngrediente1 = new javax.swing.JPanel();
+        BotonEditarIng = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
@@ -189,9 +195,7 @@ public class Bodega extends javax.swing.JFrame {
         );
         DialogoEditarIngLayout.setVerticalGroup(
             DialogoEditarIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogoEditarIngLayout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
@@ -224,23 +228,23 @@ public class Bodega extends javax.swing.JFrame {
         txtVencimientoingredienteAgregar.setBackground(new java.awt.Color(204, 255, 204));
         txtVencimientoingredienteAgregar.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Vencimiento"));
 
-        botonEditaringredienteAgregar.setBackground(new java.awt.Color(102, 255, 204));
-        botonEditaringredienteAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        botoningredienteAgregar.setBackground(new java.awt.Color(102, 255, 204));
+        botoningredienteAgregar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel14.setText("Agregar");
 
-        javax.swing.GroupLayout botonEditaringredienteAgregarLayout = new javax.swing.GroupLayout(botonEditaringredienteAgregar);
-        botonEditaringredienteAgregar.setLayout(botonEditaringredienteAgregarLayout);
-        botonEditaringredienteAgregarLayout.setHorizontalGroup(
-            botonEditaringredienteAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonEditaringredienteAgregarLayout.createSequentialGroup()
+        javax.swing.GroupLayout botoningredienteAgregarLayout = new javax.swing.GroupLayout(botoningredienteAgregar);
+        botoningredienteAgregar.setLayout(botoningredienteAgregarLayout);
+        botoningredienteAgregarLayout.setHorizontalGroup(
+            botoningredienteAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botoningredienteAgregarLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel14)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        botonEditaringredienteAgregarLayout.setVerticalGroup(
-            botonEditaringredienteAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(botonEditaringredienteAgregarLayout.createSequentialGroup()
+        botoningredienteAgregarLayout.setVerticalGroup(
+            botoningredienteAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botoningredienteAgregarLayout.createSequentialGroup()
                 .addComponent(jLabel14)
                 .addGap(0, 10, Short.MAX_VALUE))
         );
@@ -282,7 +286,7 @@ public class Bodega extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonCancelaringredienteAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(botonEditaringredienteAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(botoningredienteAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -297,7 +301,7 @@ public class Bodega extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addComponent(botonEditaringredienteAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botoningredienteAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BotonCancelaringredienteAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -366,22 +370,27 @@ public class Bodega extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        BotonEditarIngrediente.setBackground(new java.awt.Color(153, 153, 255));
+        BotonAgregarIngrediente.setBackground(new java.awt.Color(153, 153, 255));
+        BotonAgregarIngrediente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BotonAgregarIngredienteMouseClicked(evt);
+            }
+        });
 
         jLabel6.setText("Agregar");
 
-        javax.swing.GroupLayout BotonEditarIngredienteLayout = new javax.swing.GroupLayout(BotonEditarIngrediente);
-        BotonEditarIngrediente.setLayout(BotonEditarIngredienteLayout);
-        BotonEditarIngredienteLayout.setHorizontalGroup(
-            BotonEditarIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonEditarIngredienteLayout.createSequentialGroup()
+        javax.swing.GroupLayout BotonAgregarIngredienteLayout = new javax.swing.GroupLayout(BotonAgregarIngrediente);
+        BotonAgregarIngrediente.setLayout(BotonAgregarIngredienteLayout);
+        BotonAgregarIngredienteLayout.setHorizontalGroup(
+            BotonAgregarIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonAgregarIngredienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(33, 33, 33))
         );
-        BotonEditarIngredienteLayout.setVerticalGroup(
-            BotonEditarIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonEditarIngredienteLayout.createSequentialGroup()
+        BotonAgregarIngredienteLayout.setVerticalGroup(
+            BotonAgregarIngredienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonAgregarIngredienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -408,22 +417,22 @@ public class Bodega extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BotonEditarIngrediente1.setBackground(new java.awt.Color(153, 153, 255));
+        BotonEditarIng.setBackground(new java.awt.Color(153, 153, 255));
 
         jLabel7.setText("Editar");
 
-        javax.swing.GroupLayout BotonEditarIngrediente1Layout = new javax.swing.GroupLayout(BotonEditarIngrediente1);
-        BotonEditarIngrediente1.setLayout(BotonEditarIngrediente1Layout);
-        BotonEditarIngrediente1Layout.setHorizontalGroup(
-            BotonEditarIngrediente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonEditarIngrediente1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout BotonEditarIngLayout = new javax.swing.GroupLayout(BotonEditarIng);
+        BotonEditarIng.setLayout(BotonEditarIngLayout);
+        BotonEditarIngLayout.setHorizontalGroup(
+            BotonEditarIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonEditarIngLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
                 .addComponent(jLabel7)
-                .addGap(33, 33, 33))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        BotonEditarIngrediente1Layout.setVerticalGroup(
-            BotonEditarIngrediente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonEditarIngrediente1Layout.createSequentialGroup()
+        BotonEditarIngLayout.setVerticalGroup(
+            BotonEditarIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BotonEditarIngLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -441,9 +450,9 @@ public class Bodega extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonBuscarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelCRUDIngredientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BotonEditarIngrediente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonEditarIng, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotonElminarIngrediente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BotonEditarIngrediente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(BotonAgregarIngrediente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         PanelCRUDIngredientesLayout.setVerticalGroup(
@@ -454,11 +463,11 @@ public class Bodega extends javax.swing.JFrame {
                     .addComponent(BotonBuscarIngrediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TXTbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(BotonEditarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonAgregarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BotonElminarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BotonEditarIngrediente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonEditarIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -537,6 +546,10 @@ public class Bodega extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreingredienteAgregarActionPerformed
 
+    private void BotonAgregarIngredienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonAgregarIngredienteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonAgregarIngredienteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -573,12 +586,12 @@ public class Bodega extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel BotonAgregarIngrediente;
     private javax.swing.JPanel BotonBuscarIngrediente;
     private javax.swing.JPanel BotonCancelaringrediente;
     private javax.swing.JPanel BotonCancelaringredienteAgregar;
-    private javax.swing.JPanel BotonEditarIngrediente;
-    private javax.swing.JPanel BotonEditarIngrediente1;
-    private javax.swing.JPanel BotonElminarIngrediente;
+    private javax.swing.JPanel BotonEditarIng;
+    public javax.swing.JPanel BotonElminarIngrediente;
     private javax.swing.JDialog DialogoAgregarIng;
     private javax.swing.JDialog DialogoEditarIng;
     private javax.swing.JPanel PanelCRUDIngredientes;
@@ -586,7 +599,7 @@ public class Bodega extends javax.swing.JFrame {
     private javax.swing.JTextField TXTbuscar1;
     private javax.swing.JTable TablaIngredientes;
     private javax.swing.JPanel botonEditaringrediente;
-    private javax.swing.JPanel botonEditaringredienteAgregar;
+    private javax.swing.JPanel botoningredienteAgregar;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -612,4 +625,117 @@ public class Bodega extends javax.swing.JFrame {
     private javax.swing.JTextField txtVencimientoingrediente;
     private javax.swing.JTextField txtVencimientoingredienteAgregar;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getBotonBuscarIngrediente() {
+        return BotonBuscarIngrediente;
+    }
+
+    public JPanel getBotonCancelaringrediente() {
+        return BotonCancelaringrediente;
+    }
+
+    public JPanel getBotonCancelaringredienteAgregar() {
+        return BotonCancelaringredienteAgregar;
+    }
+
+    public JPanel getBotonAgregarIngrediente() {
+        return BotonAgregarIngrediente;
+    }
+
+    public JPanel getBotoningredienteAgregar() {
+        return botoningredienteAgregar;
+    }
+
+    public JPanel getBotonEditarIng() {
+        return BotonEditarIng;
+    }
+
+    public JPanel getBotonElminarIngrediente() {
+        return BotonElminarIngrediente;
+    }
+
+    public JDialog getDialogoAgregarIng() {
+        return DialogoAgregarIng;
+    }
+
+    public JDialog getDialogoEditarIng() {
+        return DialogoEditarIng;
+    }
+
+    public JPanel getPanelCRUDIngredientes() {
+        return PanelCRUDIngredientes;
+    }
+
+    public JPanel getPanelControlIngredientes() {
+        return PanelControlIngredientes;
+    }
+
+    public JTextField getTXTbuscar1() {
+        return TXTbuscar1;
+    }
+
+    public JTable getTablaIngredientes() {
+        return TablaIngredientes;
+    }
+
+    public JPanel getBotonEditaringrediente() {
+        return botonEditaringrediente;
+    }
+
+    public JPanel getBotonEditaringredienteAgregar() {
+        return botoningredienteAgregar;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JTextField getTxtCantidadingrediente() {
+        return txtCantidadingrediente;
+    }
+
+    public JTextField getTxtCantidadingredienteAgregar() {
+        return txtCantidadingredienteAgregar;
+    }
+
+    public JTextField getTxtCostoingrediente() {
+        return txtCostoingrediente;
+    }
+
+    public JTextField getTxtCostoingredienteAgregar() {
+        return txtCostoingredienteAgregar;
+    }
+
+    public JTextField getTxtIDingrediente() {
+        return txtIDingrediente;
+    }
+
+    public JTextField getTxtIDingredienteAgregar() {
+        return txtIDingredienteAgregar;
+    }
+
+    public JTextField getTxtNombreingrediente() {
+        return txtNombreingrediente;
+    }
+
+    public JTextField getTxtNombreingredienteAgregar() {
+        return txtNombreingredienteAgregar;
+    }
+
+    public JTextField getTxtUnidadMedidaingrediente() {
+        return txtUnidadMedidaingrediente;
+    }
+
+    public JTextField getTxtUnidadMedidaingredienteAgregar() {
+        return txtUnidadMedidaingredienteAgregar;
+    }
+
+    public JTextField getTxtVencimientoingrediente() {
+        return txtVencimientoingrediente;
+    }
+
+    public JTextField getTxtVencimientoingredienteAgregar() {
+        return txtVencimientoingredienteAgregar;
+    }
+
 }

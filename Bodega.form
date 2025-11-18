@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="DialogoEditarIng">
 
@@ -12,10 +12,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jPanel5" min="-2" pref="355" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
+              <Component id="jPanel5" alignment="0" pref="355" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -305,7 +302,7 @@
                       <EmptySpace pref="111" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="BotonCancelaringredienteAgregar" alignment="0" max="32767" attributes="0"/>
-                          <Component id="botonEditaringredienteAgregar" alignment="0" max="32767" attributes="0"/>
+                          <Component id="botoningredienteAgregar" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -323,7 +320,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="botonEditaringredienteAgregar" min="-2" max="-2" attributes="0"/>
+                              <Component id="botoningredienteAgregar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BotonCancelaringredienteAgregar" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -444,7 +441,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="botonEditaringredienteAgregar">
+            <Container class="javax.swing.JPanel" name="botoningredienteAgregar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="ff" red="66" type="rgb"/>
@@ -662,9 +659,9 @@
                                   <Component id="BotonBuscarIngrediente" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="BotonEditarIngrediente1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BotonEditarIng" alignment="0" max="32767" attributes="0"/>
                                   <Component id="BotonElminarIngrediente" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="BotonEditarIngrediente" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="BotonAgregarIngrediente" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="36" max="32767" attributes="0"/>
@@ -680,11 +677,11 @@
                               <Component id="TXTbuscar1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="BotonEditarIngrediente" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotonAgregarIngrediente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="BotonElminarIngrediente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BotonEditarIngrediente1" min="-2" max="-2" attributes="0"/>
+                          <Component id="BotonEditarIng" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -729,12 +726,18 @@
                 </Container>
                 <Component class="javax.swing.JTextField" name="TXTbuscar1">
                 </Component>
-                <Container class="javax.swing.JPanel" name="BotonEditarIngrediente">
+                <Container class="javax.swing.JPanel" name="BotonAgregarIngrediente">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BotonAgregarIngredienteMouseClicked"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -770,6 +773,9 @@
                       <Color blue="ff" green="99" red="99" type="rgb"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
 
                   <Layout>
                     <DimensionLayout dim="0">
@@ -799,7 +805,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="BotonEditarIngrediente1">
+                <Container class="javax.swing.JPanel" name="BotonEditarIng">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="99" red="99" type="rgb"/>
@@ -809,10 +815,10 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
