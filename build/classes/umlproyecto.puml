@@ -1,0 +1,183 @@
+@startuml
+title Sistema de Restaurante
+
+' ====== Clases principales ======
+class Cliente {
+    +verMenuQR()
+    +hacerPedido()
+    +reservarMesa()
+}
+
+class Usuario {
+    -id : int
+    -username : String
+    -password : String
+    -rol : String
+}
+
+class Restaurante {
+    -id : int
+    -nombre : String
+    -direccion : String
+    -telefono : String
+    -empleados_count : int
+    -horario : String
+}
+
+class Empleado {
+    -id : int
+    -nombre : String
+    -rol : String
+    -telefono : String
+    -correo : String
+    -salario : double
+}
+
+class Mesa {
+    -id : int
+    -capacidad : int
+    -disponible : boolean
+}
+
+class Reserva {
+    -id : int
+    -cliente_id : int
+    -fecha_hora : DateTime
+    -num_personas : int
+    -estado : String
+}
+
+class Plato {
+    -id : int
+    -nombre : String
+    -descripcion : String
+    -precio : double
+    -ruta_imagen : String
+    -disponible : boolean
+    -categoria : String
+}
+
+class Categoria {
+    -id : int
+    -nombre : String
+}
+
+class Ingrediente {
+    -id : int
+    -nombre : String
+    -unidad_medida : String
+    -stock : int
+    -costo_unitario : double
+    -estado : String
+}
+
+class Receta {
+    -id : int
+    -plato_id : int
+    -ingrediente_id : int
+    -cantidad : int
+}
+
+class Orden {
+    -id : int
+    -mesa_cliente : String
+    -fecha_hora : DateTime
+    -total : double
+    -estado : String
+}
+
+class OrdenDetalle {
+    -orden_id : int
+    -plato_id : int
+    -cantidad : int
+    -observaciones : String
+}
+
+class Transaccion {
+    -id : int
+    -orden_id : int
+    -metodo_pago : String
+    -monto : double
+    -fecha_hora : DateTime
+}
+
+class Grafico {
+    -id : int
+    -tipo : String
+    -datos : String
+}
+
+' ====== Roles ======
+class Chef {
+    +agregarPlatillo()
+    +editarPlatillo()
+    +verOrdenes()
+    +actualizarEstadoOrden()
+}
+
+class Bodega {
+    +gestionarInventario()
+    +registrarEntradasSalidas()
+    +controlarCalidadPrecios()
+}
+
+class Cajero {
+    +tomarOrdenCliente()
+    +procesarPago()
+    +enviarPedidoChef()
+}
+
+class Administrador {
+    +gestionarPerfilRestaurante()
+    +gestionarEmpleados()
+    +configurarSistema()
+    +gestionarReservas()
+    +generarReportes()
+}
+
+' ====== Controladores ======
+package Controlador {
+    class ControladorUsuario
+    class ControladorRestaurante
+    class ControladorEmpleado
+    class ControladorReserva
+    class ControladorInventario
+    class ControladorPlato
+    class ControladorReporte
+    class ControladorOrden
+    class ControladorPago
+}
+
+' ====== Relaciones ======
+Usuario "1" --> "1" Empleado
+Restaurante "1" --> "*" Empleado
+Restaurante "1" --> "*" Mesa
+Cliente "1" --> "*" Reserva
+Reserva "*" --> "1" Mesa
+Orden "*" --> "1" Cliente
+Orden "1" --> "*" OrdenDetalle
+OrdenDetalle "*" --> "1" Plato
+Plato "1" --> "*" Receta
+Receta "*" --> "1" Ingrediente
+Plato "*" --> "1" Categoria
+Orden "1" --> "1" Transaccion
+Grafico "*" --> "1" Restaurante
+
+' ====== Asociación de roles con empleados ======
+Chef --|> Empleado
+Cajero --|> Empleado
+Bodega --|> Empleado
+Administrador --|> Empleado
+
+' ====== Asociación controladores con modelos ======
+ControladorUsuario --> Usuario
+ControladorRestaurante --> Restaurante
+ControladorEmpleado --> Empleado
+ControladorReserva --> Reserva
+ControladorInventario --> Ingrediente
+ControladorPlato --> Plato
+ControladorReporte --> Grafico
+ControladorOrden --> Orden
+ControladorPago --> Transaccion
+
+@enduml
