@@ -202,8 +202,8 @@ public class AdminController {
             String contrasena = vista.getTxtContraseña().getText();
             String confirmar = vista.getTxtComfirmarContrasena().getText();
             String rol = (String) vista.getComboRol().getSelectedItem();
-            String restaurante = ""; 
-            String codigoAcceso = ""; 
+            String restaurante = "";
+            String codigoAcceso = "";
 
             if (nombre.isEmpty() || apellido.isEmpty() || gmail.isEmpty() || contrasena.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Complete los campos obligatorios (nombre, apellido, gmail, contraseña).");

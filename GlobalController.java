@@ -1,40 +1,52 @@
-
 package Controller;
 
-import Model.*;
-import View.Bodega;
-import View.Chef;
+import Model.ListaUsuarios;
+import Model.UsuarioDAO;
+import Model.IngredientesDAO;
+import Model.PlatillosDAO;
+import Model.ListaIngredientes;
+import Model.ListaPlatillos;
+import Model.Usuario;
+
+import View.*;
 
 public class GlobalController {
 
-    private Chef vistaPlatillos;
-    private ListaPlatillos listaPlatillos;
-    private PlatillosDAO platillosDAO;
-    private IngredientesDAO ingredientesDAO;
+    public void abrirAdmin(String codigoRestaurante, Usuario u) {
 
-    private ChefController platillosController;
+        Admin adminView = new Admin();
 
-    public GlobalController() {
+        ListaUsuarios listaUsuarios = new ListaUsuarios();
+        UsuarioDAO usuarioDAO = new UsuarioDAO(codigoRestaurante);
+        IngredientesDAO ingredientesDAO = new IngredientesDAO(codigoRestaurante);
 
-        // Vista
-        vistaPlatillos = new Chef();
+        new AdminController(adminView, listaUsuarios, usuarioDAO, ingredientesDAO);
 
-        // Lista
-        listaPlatillos = new ListaPlatillos();
+        adminView.setVisible(true);
+    }
 
-        // DAO
-        platillosDAO = new PlatillosDAO("rest01");
-        ingredientesDAO=new IngredientesDAO("rest01");
+    public void abrirChef(String codigoRestaurante, Usuario u) {
 
-        // Controller
-        platillosController = new ChefController(
-                vistaPlatillos,
-                listaPlatillos,
-                platillosDAO,
-                ingredientesDAO
-        );
+        Chef chefView = new Chef();
 
-        // Mostrar la vista
-        vistaPlatillos.setVisible(true);
+        ListaPlatillos listaPlatillos = new ListaPlatillos();
+        PlatillosDAO platillosDAO = new PlatillosDAO(codigoRestaurante);
+        IngredientesDAO ingredientesDAO = new IngredientesDAO(codigoRestaurante);
+
+        new ChefController(chefView, listaPlatillos, platillosDAO, ingredientesDAO);
+
+        chefView.setVisible(true);
+    }
+
+    public void abrirBodega(String codigoRestaurante, Usuario u) {
+
+        Bodega bodegaView = new Bodega();
+
+        ListaIngredientes listaIngredientes = new ListaIngredientes();
+        IngredientesDAO ingredientesDAO = new IngredientesDAO(codigoRestaurante);
+
+        new BodegaController(bodegaView, listaIngredientes, ingredientesDAO);
+
+        bodegaView.setVisible(true);
     }
 }
