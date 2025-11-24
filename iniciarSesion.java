@@ -6,6 +6,9 @@ package View;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -18,12 +21,6 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
      */
     public iniciarSesion() {
         initComponents();
-        this.setClosable(false);
-        this.setIconifiable(false);
-        this.setMaximizable(false);
-        this.setResizable(false);
-
-        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
     }
 
     /**
@@ -216,4 +213,21 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
+
+    public JPanel getBotonIniciar() {
+        return botonIniciar;
+    }
+
+    public JTextField getTxtCodigo() {
+        return txtCodigo;
+    }
+
+    public JPasswordField getTxtContraseña() {
+        return txtContraseña;
+    }
+
+    public JTextField getTxtusuario() {
+        return txtusuario;
+    }
+
 }

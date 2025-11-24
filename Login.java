@@ -4,6 +4,9 @@
  */
 package View;
 
+import javax.swing.JDesktopPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author elise
@@ -36,7 +39,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         botonIniciarSesion = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        mostras = new javax.swing.JDesktopPane();
+        PanelVisual = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,9 +150,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        mostras.addAncestorListener(new javax.swing.event.AncestorListener() {
+        PanelVisual.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                mostrasAncestorAdded(evt);
+                PanelVisualAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -157,14 +160,14 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout mostrasLayout = new javax.swing.GroupLayout(mostras);
-        mostras.setLayout(mostrasLayout);
-        mostrasLayout.setHorizontalGroup(
-            mostrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelVisualLayout = new javax.swing.GroupLayout(PanelVisual);
+        PanelVisual.setLayout(PanelVisualLayout);
+        PanelVisualLayout.setHorizontalGroup(
+            PanelVisualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 568, Short.MAX_VALUE)
         );
-        mostrasLayout.setVerticalGroup(
-            mostrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelVisualLayout.setVerticalGroup(
+            PanelVisualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 393, Short.MAX_VALUE)
         );
 
@@ -175,14 +178,14 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mostras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelVisual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(mostras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelVisual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -205,39 +208,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseClicked
 
     private void botonIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseClicked
-         iniciarSesion ini = new iniciarSesion();
-        mostras.removeAll();
-        mostras.add(ini);
-        ini.setVisible(true);
-        try {
-            ini.setSelected(true);
-
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
-        }
-        mostras.repaint();
-        mostras.revalidate();
+        
 
     }//GEN-LAST:event_botonIniciarSesionMouseClicked
 
     private void botonRegistrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonRegistrarseMouseClicked
-        registrarse regi = new registrarse();
-        mostras.removeAll();
-        mostras.add(regi);
-        regi.setVisible(true);
-        try {
-            regi.setSelected(true);
-        } catch (java.beans.PropertyVetoException e) {
-            e.printStackTrace();
-        }
-
-        mostras.repaint();
-        mostras.revalidate();
+      
     }//GEN-LAST:event_botonRegistrarseMouseClicked
 
-    private void mostrasAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_mostrasAncestorAdded
+    private void PanelVisualAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_PanelVisualAncestorAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_mostrasAncestorAdded
+    }//GEN-LAST:event_PanelVisualAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -275,6 +256,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane PanelVisual;
     private javax.swing.JPanel botonIniciarSesion;
     private javax.swing.JPanel botonRegistrarse;
     private javax.swing.JLabel jLabel1;
@@ -283,6 +265,18 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JDesktopPane mostras;
     // End of variables declaration//GEN-END:variables
+
+    public JDesktopPane getPanelVisual() {
+        return PanelVisual;
+    }
+
+    public JPanel getBotonIniciarSesion() {
+        return botonIniciarSesion;
+    }
+
+    public JPanel getBotonRegistrarse() {
+        return botonRegistrarse;
+    }
+    
 }
