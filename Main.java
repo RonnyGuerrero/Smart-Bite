@@ -7,39 +7,15 @@ import View.*;
 import Controller.*;
 
 public class Main {
-
-
     public static void main(String[] args) {
-       
-        String codigoRestaurante = "rest01";
 
-        // === DAO ===
-        UsuarioDAO usuarioDAO = new UsuarioDAO(codigoRestaurante);
-        IngredientesDAO ingredientesDAO = new IngredientesDAO(codigoRestaurante);
+    GlobalController global = new GlobalController();
 
-        // === Lista enlazada ===
-        ListaUsuarios listaUsuarios = new ListaUsuarios();
+    Login inicio = new Login();
+    
+    new PrincipalController(inicio, global);
 
-        // Cargar usuarios existentes a la lista
-        for (Usuario u : usuarioDAO.getUsuarios()) {
-            listaUsuarios.agregar(u);
-        }
-
-        // === Vista Administrador ===
-        Admin adminView = new Admin();
-
-        // === Controller Administrador ===
-        new AdminController(
-                adminView,
-                listaUsuarios,
-                usuarioDAO,
-                ingredientesDAO
-        );
-
-        // Abrir la pantalla de Administrador directamente
-        adminView.setVisible(true);
-
-    }
-
+    // Mostrar ventana
+    inicio.setVisible(true);
 }
-
+}
