@@ -201,19 +201,7 @@ public class iniciarSesion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonIniciarAncestorAdded
 
     private void botonIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarMouseClicked
-        // TODO add your handling code here:
-        String usuario = txtusuario.getText();
-        String contraseña = txtContraseña.getText();
-        if (usuario.equals("eliseo") && contraseña.equals("123")) {
-            JFrame ventana = new JFrame("Administrador");
-            ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            ventana.setSize(1215, 500);
-
-            ventana.setContentPane(new Administrador());
-            ventana.setVisible(true);
-        } else {
-            JOptionPane.showConfirmDialog(null, "error");
-        }
+        
     }//GEN-LAST:event_botonIniciarMouseClicked
 
 

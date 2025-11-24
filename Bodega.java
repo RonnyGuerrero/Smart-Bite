@@ -63,7 +63,7 @@ public class Bodega extends javax.swing.JFrame {
         PanelCRUDIngredientes = new javax.swing.JPanel();
         BotonBuscarIngrediente = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        TXTbuscar1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         BotonAgregarIngrediente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         BotonElminarIngrediente = new javax.swing.JPanel();
@@ -195,7 +195,7 @@ public class Bodega extends javax.swing.JFrame {
         );
         DialogoEditarIngLayout.setVerticalGroup(
             DialogoEditarIngLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 355, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(204, 255, 204));
@@ -446,7 +446,7 @@ public class Bodega extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(PanelCRUDIngredientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelCRUDIngredientesLayout.createSequentialGroup()
-                        .addComponent(TXTbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(BotonBuscarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelCRUDIngredientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -461,7 +461,7 @@ public class Bodega extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(PanelCRUDIngredientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonBuscarIngrediente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TXTbuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(BotonAgregarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -596,7 +596,6 @@ public class Bodega extends javax.swing.JFrame {
     private javax.swing.JDialog DialogoEditarIng;
     private javax.swing.JPanel PanelCRUDIngredientes;
     private javax.swing.JPanel PanelControlIngredientes;
-    private javax.swing.JTextField TXTbuscar1;
     private javax.swing.JTable TablaIngredientes;
     private javax.swing.JPanel botonEditaringrediente;
     private javax.swing.JPanel botoningredienteAgregar;
@@ -612,6 +611,7 @@ public class Bodega extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCantidadingrediente;
     private javax.swing.JTextField txtCantidadingredienteAgregar;
     private javax.swing.JTextField txtCostoingrediente;
@@ -670,8 +670,8 @@ public class Bodega extends javax.swing.JFrame {
         return PanelControlIngredientes;
     }
 
-    public JTextField getTXTbuscar1() {
-        return TXTbuscar1;
+    public JTextField getTXTbuscar() {
+        return txtBuscar;
     }
 
     public JTable getTablaIngredientes() {
