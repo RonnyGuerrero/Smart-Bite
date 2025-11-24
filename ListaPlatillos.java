@@ -8,9 +8,9 @@ import java.util.LinkedList;
 
 public class ListaPlatillos {
 
-    private NodoPlatillo cabeza;
+     private NodoPlatillo cabeza;
 
-    private static class NodoPlatillo {
+    private static class NodoPlatillo { 
 
         Platillos platillo;
         NodoPlatillo siguiente;

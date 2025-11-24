@@ -22,7 +22,7 @@ public class UsuarioDAO extends ArchivoDAO<Usuario> {
     }
 
     public boolean eliminar(String nombreUsuario) {
-        boolean eliminado = usuarios.removeIf(u -> u.getUsuario().equalsIgnoreCase(nombreUsuario));
+        boolean eliminado = usuarios.removeIf(u -> u.getNombre().equalsIgnoreCase(nombreUsuario));
         if (eliminado) {
             guardar(usuarios);
         }
@@ -31,7 +31,7 @@ public class UsuarioDAO extends ArchivoDAO<Usuario> {
 
     public Usuario buscar(String nombreUsuario) {
         for (Usuario u : usuarios) {
-            if (u.getUsuario().equalsIgnoreCase(nombreUsuario)) {
+            if (u.getNombre().equalsIgnoreCase(nombreUsuario)) {
                 return u;
             }
         }

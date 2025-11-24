@@ -14,12 +14,12 @@ public class Ingredientes implements Serializable {
     private int cantidad;
     private String unidadMedida;
     private double costoUnidad;
-    private Date FechaVencimiento;
+    private String FechaVencimiento;
 
     public Ingredientes() {
     }
 
-    public Ingredientes(int idIngrediente, String nombre, int cantidad, String unidadMedida, double costoUnidad,Date FechaVencimiento) {
+    public Ingredientes(int idIngrediente, String nombre, int cantidad, String unidadMedida, double costoUnidad,String FechaVencimiento) {
         this.idIngrediente = idIngrediente;
         this.FechaVencimiento = FechaVencimiento;
         this.nombre = nombre;
@@ -28,11 +28,11 @@ public class Ingredientes implements Serializable {
         this.costoUnidad = costoUnidad;
     }
 
-    public Date getFechaVencimiento() {
+    public String getFechaVencimiento() {
         return FechaVencimiento;
     }
 
-    public void setFechaVencimiento(Date FechaVencimiento) {
+    public void setFechaVencimiento(String FechaVencimiento) {
         this.FechaVencimiento = FechaVencimiento;
     }
 

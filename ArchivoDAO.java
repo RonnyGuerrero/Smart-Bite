@@ -15,7 +15,7 @@ public abstract class ArchivoDAO<T> {
         this.archivo = new File(rutaArchivo);
     }
 
-        protected void guardar(LinkedList<T> lista) {
+        public void guardar(LinkedList<T> lista) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(archivo))) {
             out.writeObject(lista);
         } catch (IOException e) {

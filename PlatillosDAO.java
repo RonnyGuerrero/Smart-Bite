@@ -20,7 +20,7 @@ public class PlatillosDAO extends ArchivoDAO<Platillos> {
     public void agregar(Platillos p) {
         platillos.add(p);
         guardar(platillos);
-        System.out.println("✅ Platillo guardado");
+        System.out.println("Platillo guardado");
     }
 
     public boolean eliminar(String nombre) {
@@ -52,7 +52,6 @@ public class PlatillosDAO extends ArchivoDAO<Platillos> {
         return platillos;
     }
 
-    // 🔹 Reemplazar lista completa (para guardar después de editar o eliminar varios)
     public void setPlatillos(LinkedList<Platillos> listaActualizada) {
         this.platillos = listaActualizada;
         guardar(this.platillos);

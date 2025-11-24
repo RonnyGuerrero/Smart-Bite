@@ -22,7 +22,7 @@ public class Platillos implements Serializable{
         this.nombre = nombre;
         this.categoria = categoria;
         this.precio = precio;
-        this.descripcion = descripcion;
+        this.descripcion = descripcion; 
     }
 
     public int getIdPlatillo() {

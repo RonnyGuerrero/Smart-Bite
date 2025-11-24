@@ -9,23 +9,50 @@ public class Usuario implements Serializable {
     private int idUsuario;
     private String nombre;
     private String rol;
-    private String usuario;
     private String contrasena;
-    private String restaurante;  
-    private String codigoAcceso;   
+    private String apellido;
+    private String gmail;
+    private String telefono;
+    private String restaurante;
+    private String codigoAcceso;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String rol, String usuario, String contrasena,
-            String restaurante, String codigoAcceso) {
+    public Usuario(int idUsuario, String nombre, String rol, String contrasena, String apellido, String gmail, String telefono, String restaurante, String codigoAcceso) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.rol = rol;
-        this.usuario = usuario;
         this.contrasena = contrasena;
+        this.apellido = apellido;
+        this.gmail = gmail;
+        this.telefono = telefono;
         this.restaurante = restaurante;
         this.codigoAcceso = codigoAcceso;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getGmail() {
+        return gmail;
+    }
+
+    public void setGmail(String gmail) {
+        this.gmail = gmail;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     // Getters y setters
@@ -51,14 +78,6 @@ public class Usuario implements Serializable {
 
     public void setRol(String rol) {
         this.rol = rol;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getContrasena() {
