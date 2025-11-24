@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controller;
 
 import Model.Ingredientes;
 import Model.ListaIngredientes;
 import Model.IngredientesDAO;
 import View.Bodega;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
@@ -30,9 +25,8 @@ public class BodegaController {
         vista.getBotonAgregarIngrediente().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                vista.getDialogoAgregarIng().setSize(404, 355);
-                vista.getDialogoAgregarIng().setLocationRelativeTo(null);
-                vista.getDialogoAgregarIng().setVisible(true);
+                abrirDialogoAgregar();
+
             }
         });
 
@@ -156,9 +150,22 @@ public class BodegaController {
             vista.getTxtUnidadMedidaingrediente().setText(ing.getUnidadMedida());
             vista.getTxtCostoingrediente().setText(String.valueOf(ing.getCostoUnidad()));
             vista.getTxtVencimientoingrediente().setText(ing.getFechaVencimiento());
-            vista.getDialogoEditarIng().setSize(404, 355);
+            vista.getDialogoEditarIng().setSize(404, 380);
             vista.getDialogoEditarIng().setVisible(true);
         }
+    }
+
+    private void abrirDialogoAgregar() {
+        vista.getDialogoAgregarIng().setSize(404, 380);
+        vista.getDialogoAgregarIng().setLocationRelativeTo(null);
+        vista.getDialogoAgregarIng().setVisible(true);
+        
+        vista.getTxtCantidadingredienteAgregar().setText("");
+        vista.getTxtCostoingredienteAgregar().setText("");
+        vista.getTxtIDingredienteAgregar().setText("");
+        vista.getTxtUnidadMedidaingredienteAgregar().setText("");
+        vista.getTxtNombreingredienteAgregar().setText("");
+        vista.getTxtVencimientoingredienteAgregar().setText("");
     }
 
     private void editarIngrediente() {
@@ -187,12 +194,12 @@ public class BodegaController {
     }
 
     private void buscarIngrediente() {
-        String nombre = vista.getTXTbuscar1().getText();
+        String nombre = vista.getTXTbuscar().getText();
         Ingredientes ing = dao.buscar(nombre);
 
         DefaultTableModel model = (DefaultTableModel) vista.getTablaIngredientes().getModel();
         model.setRowCount(0);
-
+        
         if (ing != null) {
             model.addRow(new Object[]{
                 ing.getIdIngrediente(),
@@ -206,4 +213,5 @@ public class BodegaController {
             System.out.println("No se encontró el ingrediente.");
         }
     }
+
 }
